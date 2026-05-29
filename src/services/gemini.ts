@@ -16,7 +16,7 @@ type FreeLLMResponse = {
 };
 
 function getProvider() {
-  return ((import.meta.env.VITE_AI_PROVIDER as string | undefined) || "gemini").toLowerCase();
+  return ((import.meta.env.VITE_AI_PROVIDER as string | undefined) || "apifreellm").toLowerCase();
 }
 
 export async function generateWithAi(prompt: string) {
