@@ -179,6 +179,40 @@ Serve the built app with the Express server:
 npm run serve
 ```
 
+## Render Deployment
+
+This project includes `render.yaml` for Render web service deployment.
+
+Recommended Render settings:
+
+```txt
+Environment: Node
+Build Command: npm ci && npm run build
+Start Command: npm start
+```
+
+Required environment variables in Render:
+
+```env
+VITE_AI_PROVIDER=apifreellm
+AI_API_KEY=your_apifreellm_api_key
+```
+
+Optional Gemini fallback:
+
+```env
+VITE_AI_PROVIDER=gemini
+VITE_GEMINI_API_KEY=your_gemini_api_key
+```
+
+Important deployment notes:
+
+- Commit and push `server.js`; Render starts the app with `node server.js`.
+- Do not set the build command to only `yarn` or `npm install`; the Vite app must be built with `npm run build`.
+- Keep one package manager lockfile. This project uses `package-lock.json`, so npm commands are recommended.
+- If Render shows `Cannot find module '/opt/render/project/src/server.js'`, the deployed GitHub commit does not contain `server.js` or Render is deploying an older commit.
+- Add `AI_API_KEY` in Render environment variables before using the AI generator endpoint.
+
 ## Linting
 
 Run ESLint:

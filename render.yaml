@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-cover-letter-generator
+    env: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.1
+      - key: VITE_AI_PROVIDER
+        value: apifreellm
+      - key: AI_API_KEY
+        sync: false

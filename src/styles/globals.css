@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 229 22% 5%;
+    --foreground: 215 30% 96%;
+    --muted: 226 22% 16%;
+    --muted-foreground: 216 22% 72%;
+    --accent: 224 94% 66%;
+    --accent-foreground: 224 40% 98%;
+    --primary: 214 100% 62%;
+    --primary-foreground: 220 40% 98%;
+    --border: 226 16% 19%;
+    --input: 223 20% 12%;
+    --ring: 209 85% 61%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-[#050913] text-white antialiased;
+    background-image: radial-gradient(circle at top left, rgba(79, 101, 255, 0.18), transparent 24%),
+      radial-gradient(circle at 85% 10%, rgba(157, 81, 255, 0.14), transparent 22%),
+      linear-gradient(180deg, rgba(7, 13, 29, 0.96), #04060f 72%);
+    background-attachment: fixed;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.08), transparent 24%),
+      radial-gradient(circle at 85% 18%, rgba(79, 146, 255, 0.1), transparent 16%);
+    z-index: -1;
+  }
+
+  ::selection {
+    background: rgba(96, 165, 250, 0.32);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-white/10 bg-white/5 shadow-[0_24px_120px_rgba(0,0,0,0.24)] backdrop-blur-2xl;
+  }
+
+  .premium-input {
+    @apply h-12 w-full rounded-2xl border border-white/10 bg-white/5 px-4 text-sm text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-blue-300/60 focus:bg-white/10 focus:ring-4 focus:ring-blue-500/15;
+  }
+
+  .premium-textarea {
+    @apply min-h-[10rem] w-full resize-none rounded-2xl border border-white/10 bg-white/5 px-4 py-4 text-sm leading-7 text-white outline-none transition duration-300 placeholder:text-slate-500 focus:border-blue-300/60 focus:bg-white/10 focus:ring-4 focus:ring-blue-500/15;
+  }
+
+  .premium-label {
+    @apply text-[0.72rem] font-semibold uppercase tracking-[0.24em] text-slate-400;
+  }
+
+  .premium-toast {
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    background: rgba(8, 15, 30, 0.94) !important;
+    color: white !important;
+    backdrop-filter: blur(22px);
+  }
+}
+
+.markdown-output h1,
+.markdown-output h2,
+.markdown-output h3 {
+  color: white;
+  font-weight: 800;
+  margin-top: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.markdown-output p {
+  margin-bottom: 1rem;
+  line-height: 1.85;
+}
+
+.markdown-output ul {
+  list-style: disc;
+  padding-left: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.markdown-output strong {
+  color: #bfdbfe;
+}
+
+.markdown-output blockquote {
+  border-left: 3px solid rgba(111, 144, 255, 0.4);
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  color: #cbd5e1;
+}
+
+.markdown-output code {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  padding: 0.35rem 0.55rem;
+  color: #d6d6ff;
+}
